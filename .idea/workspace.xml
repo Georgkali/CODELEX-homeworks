@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e30081e-6a6a-4a5a-a63b-d9f1b6ec0d41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Arrays/Exercise1.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Arrays/Exercise2.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Arrays/Exercise3.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Arrays/Exercise4.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Arrays/Exercise5.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flow-of-control/Exercise1.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flow-of-control/Exercise2.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flow-of-control/Exercise3.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flow-of-control/Exercise4.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flow-of-control/Exercise5.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +57,8 @@
       <workItem from="1628769337250" duration="3788000" />
       <workItem from="1628851746753" duration="5865000" />
       <workItem from="1628869109570" duration="39848000" />
+      <workItem from="1629695921375" duration="397000" />
+      <workItem from="1629696366364" duration="1509000" />
     </task>
     <servers />
   </component>
