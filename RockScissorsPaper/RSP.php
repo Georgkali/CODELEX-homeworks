@@ -17,6 +17,7 @@ echo "Player: " . $playerChoice . "\n";
 echo "Computer: " . $computerChoice . "\n";
 
 if($playerChoice == $computerChoice) echo "Tie!";
+
 if($playerChoice == $options[0] && $computerChoice == $options[1]) echo "Player win!";
 if($playerChoice == $options[1] && $computerChoice == $options[2]) echo "Player win!";
 if($playerChoice == $options[2] && $computerChoice == $options[0]) echo "Player win!";
