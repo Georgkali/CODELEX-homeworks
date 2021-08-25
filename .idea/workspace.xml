@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e30081e-6a6a-4a5a-a63b-d9f1b6ec0d41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/RockScissorsPaper/RSP.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arrays/Exercise4.php" beforeDir="false" afterPath="$PROJECT_DIR$/Arrays/Exercise4.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +60,7 @@
       <workItem from="1629695921375" duration="397000" />
       <workItem from="1629696366364" duration="12293000" />
       <workItem from="1629746154913" duration="29582000" />
-      <workItem from="1629874356180" duration="1279000" />
+      <workItem from="1629874356180" duration="2305000" />
     </task>
     <servers />
   </component>
