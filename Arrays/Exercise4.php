@@ -20,6 +20,6 @@ for ($i = 0; $i < 10; $i++) {
 }
 
 echo "Array 1: " . implode(" ", $firsArray) . PHP_EOL;
-//$firsArray[9] = -7;
-array_splice($firsArray, 9, 1, [-7]);
+
+array_splice($firsArray, -1, 1, [-7]);
 echo "Array 2: " . implode(" ", $firsArray) . PHP_EOL;
