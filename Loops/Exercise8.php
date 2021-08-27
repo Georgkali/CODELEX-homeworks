@@ -13,3 +13,34 @@
 //34512
 //45123
 //51234
+
+class NumberSquare {
+
+    public $min;
+    public $max;
+    public $arr = [];
+    public function getInputs() {
+        $this->min = (int) readline("Min: ");
+        $this->max = (int) readline("Max: ");
+    }
+
+    public function makeLine() {
+        for ($i = $this->min; $i < ($this->max)+1; $i++) {
+            array_push($this->arr, $i );
+        }
+        return $this->arr;
+    }
+    public function drawLines() {
+        $this->getInputs();
+        for ($e = 0; $e < ($this->max) ; $e++) {
+            for ($i = 0; $i < ($this->max - $this->min)+1; $i++) {
+                echo $this->makeLine()[$i + $e];
+            }
+            echo "\n";
+        }
+    }
+}
+
+$numberSquare = new NumberSquare;
+$numberSquare->drawLines();
+//var_dump($numberSquare->arr);
