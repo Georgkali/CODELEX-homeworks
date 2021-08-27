@@ -10,10 +10,6 @@
 //Then, modify your program using an integer class constant so that it can create a similar figure of any size.
 // For instance, the diagram above has a size of 5. For example, the figure below has a size of 3:
 
-//  //// //// \\\\ \\\\
-//  //// **** **** \\\\
-//  **** **** ****  ****
-
 // //// //// //// //// //// //// \\\\\\\\\\\\\\\\\\\\\\\\
 // ////////////////////********\\\\\\\\\\\\\\\\\\\\
 // ////////////////****************\\\\\\\\\\\\\\\\
@@ -22,42 +18,44 @@
 // ////****************************************\\\\
 // **** **** **** **** **** ****         **** **** **** **** **** ****
 
-class AsciiFigure {
+class AsciiFigure{
     public $leftPixel = "////";
     public $rightPixel = "\\\\\\\\";
     public $starPixel = "****";
     public $stages = 5;
 
-    public function drawTopline(){
-        for ($i = 0; $i < ($this->stages - 1); $i++) {
-            echo $this->leftPixel;
-        }
-        for ($i = 0; $i < ($this->stages - 1); $i++) {
-            echo $this->rightPixel;
-        }
-        echo "\n";
+    public function drawLeftSide($i){
+        for ($e = 1; $e < $this->stages; $e++) {
+                if ($e < $this->stages - $i) {
+                    echo $this->leftPixel;
+                } else {
+                    echo $this->starPixel;
+                }
+            }
     }
 
-    public function drawSecondLine() {
-        for ($i = 0; $i < ($this->stages - 1); $i++) {
+    public function drawRightSide($i) {
+        for ($e = 1; $e < $this->stages; $e++) {
+                if ($e < 1 + $i) {
+                    echo $this->starPixel;
+                } else {
 
-        }
-        for ($i = 0; $i < ($this->stages - 1); $i++) {
-            echo $this->rightPixel;
-        }
-        echo "\n";
-
+                    echo $this->rightPixel;
+                }
+            }
     }
 
-    public function drawBaseLine(){
-        for ($i = 0; $i < ($this->stages - 1)*2; $i++) {
-            echo $this->starPixel;
+    public function drawPyramid() {
+        for ($i = 0; $i < $this->stages ; $i++) {
+            $this->drawLeftSide($i);
+            $this->drawRightSide($i);
+            echo "\n";
         }
-        echo "\n";
     }
 }
 
+
 $asciiFigure = new AsciiFigure;
-$asciiFigure->drawTopline();
-$asciiFigure->drawSecondLine();
-$asciiFigure->drawBaseLine();
+$asciiFigure->stages = 7;
+$asciiFigure->drawPyramid();
+
