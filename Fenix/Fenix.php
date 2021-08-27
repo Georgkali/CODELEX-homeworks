@@ -1,5 +1,4 @@
 <?php
-
 $wallet = 500;
 $bet = 0;
 $characters = [
@@ -17,17 +16,9 @@ $bets = [
 ];
 
 $playBoard = [
-    1 => ["1", "-", "-", "-"],
-    2 => ["2", "-", "-", "-"],
-    3 => ["3", "-", "-", "-"]
-];
-
-$diagonals = [
-    [["A", "D"],  ["A"], ["B",],  ["B", "C"]],
-
-    [[" "],  ["B", "D"],  ["A", "C"],  [" "]],
-
-    [["B", "C"],  ["C"], ["D"],   ["A", "D"]]
+   1 => ["1", "-", "-"],
+   2 => ["2", "-", "-"],
+   3 => ["3", "-", "-"]
 ];
 
 $decision = readline("Wanna play? y/n: ");
@@ -44,14 +35,11 @@ while ($decision == 'y') {
         }
     }
 
-    echo "| " . $playBoard[1][0] . " | " . $playBoard[1][1] . " | " . $playBoard[1][2] . " | " . $playBoard[1][3] . " | \n";
-    echo "+ - + - + - + - +\n";
-    echo "| " . $playBoard[2][0] . " | " . $playBoard[2][1] . " | " . $playBoard[2][2] . " | " . $playBoard[2][3] . " | \n";
-    echo "+ - + - + - + - +\n";
-    echo "| " . $playBoard[3][0] . " | " . $playBoard[3][1] . " | " . $playBoard[3][2] . " | " . $playBoard[3][3] . " | \n";
-    foreach ($diagonals as $diagonal) {
-        var_dump(array_search("A", $diagonal));
-    }
+    echo "| " . $playBoard[1][0] . " | " . $playBoard[1][1] . " | " . $playBoard[1][2] . " | \n";
+    echo "+ - + - + - + \n";
+    echo "| " . $playBoard[2][0] . " | " . $playBoard[2][1] . " | " . $playBoard[2][2] . " | \n";
+    echo "+ - + - + - + \n";
+    echo "| " . $playBoard[3][0] . " | " . $playBoard[3][1] . " | " . $playBoard[3][2] . " | \n";
     $lines = [];
     $winLetters = [];
 // horizontal lines
@@ -68,7 +56,21 @@ while ($decision == 'y') {
         array_push($lines, $column);
     }
 
+// diagonal lines\
+    $diagonal1 = [];
+    for ($i = 0; $i < count($playBoard); $i++) {
+        array_push($diagonal1, $playBoard[$i + 1][$i]);
+    }
+    array_push($lines, $diagonal1);
 
+// diagonal lines/
+    $diagonal2 = [];
+    $t = count($playBoard) - 1;
+    for ($i = 0; $i < count($playBoard); $i++) {
+        array_push($diagonal2, $playBoard[$i + 1][$t]);
+        $t--;
+    }
+    array_push($lines, $diagonal2);
 //detect winning lines
     foreach ($lines as $line) {
         $line = array_unique($line);
@@ -88,7 +90,6 @@ while ($decision == 'y') {
             }
         }
     }
-
     echo "You won " . $prize . "$ \n";
     if ($prize === 0) {
         $wallet = $wallet - $bet*$bets[$bet];
