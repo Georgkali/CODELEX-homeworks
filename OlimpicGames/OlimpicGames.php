@@ -47,6 +47,7 @@ $run = function ($player) use ($line, &$finish, &$players)
            } else {
                $finish[] = $player->name;
 
+
            }
        sleep(1);
        echo "\n";
