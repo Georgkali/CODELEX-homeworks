@@ -17,41 +17,36 @@ $bets = [
 ];
 
 $playBoard = [
-    1 => ["1", "-", "-", "-"],
-    2 => ["2", "-", "-", "-"],
-    3 => ["3", "-", "-", "-"]
-];
-
-$diagonals = [
-    [["A", "D"],  ["A"], ["B",],  ["B", "C"]],
-
-    [[" "],  ["B", "D"],  ["A", "C"],  [" "]],
-
-    [["B", "C"],  ["C"], ["D"],   ["A", "D"]]
+    ["1", "-", "-", "-"],
+    ["2", "-", "-", "-"],
+    ["3", "-", "-", "-"]
 ];
 
 $decision = readline("Wanna play? y/n: ");
-if($decision === 'y') {
+
+while ($decision == 'y') {
+
     foreach ($bets as $bet => $coefficient) {
         echo $bet . "$ \n";
     }
     $bet = readline("make your bet: ");
-}
-while ($decision == 'y') {
+
     foreach ($playBoard as $key => $value) {
+
         for ($i = 0; $i < count($value); $i++) {
             array_splice($playBoard[$key], $i, 1, array_keys($characters)[rand(0, count($characters) - 1)]);
         }
     }
 
+    echo "| " . $playBoard[0][0] . " | " . $playBoard[0][1] . " | " . $playBoard[0][2] . " | " . $playBoard[0][3] . " | \n";
+    echo "+ - + - + - + - +\n";
+   sleep(1);
     echo "| " . $playBoard[1][0] . " | " . $playBoard[1][1] . " | " . $playBoard[1][2] . " | " . $playBoard[1][3] . " | \n";
     echo "+ - + - + - + - +\n";
+   sleep(1);
     echo "| " . $playBoard[2][0] . " | " . $playBoard[2][1] . " | " . $playBoard[2][2] . " | " . $playBoard[2][3] . " | \n";
-    echo "+ - + - + - + - +\n";
-    echo "| " . $playBoard[3][0] . " | " . $playBoard[3][1] . " | " . $playBoard[3][2] . " | " . $playBoard[3][3] . " | \n";
-    foreach ($diagonals as $diagonal) {
-        var_dump(array_search("A", $diagonal));
-    }
+   sleep(1);
+
     $lines = [];
     $winLetters = [];
 // horizontal lines
@@ -60,14 +55,30 @@ while ($decision == 'y') {
     }
 
 // vertical lines
-    for ($i = 0; $i < count($playBoard); $i++) {
+    for ($i = 0; $i < count($playBoard)+1; $i++) {
         $column = [];
         foreach ($playBoard as $row => $value) {
             array_push($column, $value[$i]);
         }
         array_push($lines, $column);
     }
+    //detecting winning diagonals
 
+    $diagonals = [
+        [[0, 0], [0, 1], [1, 2], [2, 3]],
+        [[2, 0], [1 ,1], [0, 2], [0, 3]],
+        [[2, 0], [2, 1], [1, 2], [0, 3]],
+        [[0, 0], [1, 1], [2, 2], [2, 3]]
+    ];
+
+    foreach ($diagonals as $diagonal=>$index) {
+        $diagonalLines = [];
+        for($i = 0; $i < count($index); $i++) {
+            array_push($diagonalLines, $playBoard[$index[$i][0]][$index[$i][1]]);
+        }
+        array_push($lines, $diagonalLines);
+    }
+//var_dump($lines);
 
 //detect winning lines
     foreach ($lines as $line) {
@@ -77,6 +88,7 @@ while ($decision == 'y') {
             echo $line[0] . " Wins! \n";
         }
     }
+
     $prize = 0;
 
     foreach ($characters as $character => $cost) {
@@ -88,24 +100,16 @@ while ($decision == 'y') {
             }
         }
     }
-
     echo "You won " . $prize . "$ \n";
     if ($prize === 0) {
         $wallet = $wallet - $bet*$bets[$bet];
         echo "You lose " . $bet*$bets[$bet] . "$ \n";
     }
     echo $wallet . "$ in your wallet \n";
-    if($wallet < 0) {
+    if($wallet <= 0) {
         echo "Good Bye! See you soon! \n";
         exit();
     }
-    $decision = 'n';
     $decision = readline("Wanna play? y/n: ");
-    if($decision === 'y') {
-        foreach ($bets as $bet => $coefficient) {
-            echo $bet . "\n";
-        }
-        $bet = readline("make your bet: ");
-    }
 
 }
