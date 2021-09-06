@@ -46,13 +46,13 @@ $run = function ($player) use ($line, &$finish, &$players)
        $run($player);
            } else {
                $finish[] = $player->name;
-
-
            }
        sleep(1);
        echo "\n";
    }
-$finish = array_unique($finish);
+
+
+   $finish = array_unique($finish);
    var_dump($finish);
 foreach ($finish as $key=>$value) {
     echo  $key + 1 . "st place->  $value  \n";

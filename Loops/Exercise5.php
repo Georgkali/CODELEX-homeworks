@@ -15,7 +15,7 @@ class Piglet
 
     public function round() {
         while ($this->input == "y") {
-            $match = (int)rand(0, 10);
+            $match = (int) rand(0, 10);
             echo "You rolled a " . $match . "\n";
             if ($match === 0) {
                 echo "You lose!";
