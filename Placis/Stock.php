@@ -1,20 +1,20 @@
 <?php
 
 class Stock {
-    private array $stock;
-    public function __construct(array $stock)
+    private ?array $stock;
+    public function __construct(array $stock = null)
     {
-        foreach ($stock as $shelf) {
-
-            $this->addToStock($shelf);
-        }
+      $this->stock = $stock;
     }
     public function addToStock(Shelf $shelf) {
         $this->stock[] = $shelf;
     }
-
+    public function takeFromStock($i) {
+        unset($this->stock[$i]);
+    }
     public function getStock(): array
     {
         return $this->stock;
     }
+
 }
